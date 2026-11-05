@@ -38,12 +38,12 @@ class Settings(BaseSettings):
 
     # ── WhatsApp Cloud API ───────────────────────────────────────
     WHATSAPP_API_VERSION: str = "v21.0"
-    WHATSAPP_VERIFY_TOKEN: str = ""
+    WHATSAPP_VERIFY_TOKEN: str = "aashrays_pa_wa_verify_token"
     WHATSAPP_BUSINESS_PHONE_ID: str = ""
     WHATSAPP_BUSINESS_ACCESS_TOKEN: str = ""
 
     # ── Instagram API ────────────────────────────────────────────
-    INSTAGRAM_VERIFY_TOKEN: str = ""
+    INSTAGRAM_VERIFY_TOKEN: str = "aashrays_pa_ig_verify_token"
     INSTAGRAM_APP_ID: str = ""
     INSTAGRAM_APP_SECRET: str = ""
     INSTAGRAM_ACCESS_TOKEN: str = ""

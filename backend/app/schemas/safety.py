@@ -111,3 +111,4 @@ class WebhookEventRead(BaseModel):
     processed_at: Optional[datetime] = None
 
     model_config = ConfigDict(from_attributes=True)
+

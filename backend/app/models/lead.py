@@ -82,3 +82,4 @@ class Lead(Base, UUIDMixin, TimestampMixin):
     account: Mapped["Account"] = relationship("Account")
     conversation: Mapped["Conversation"] = relationship("Conversation")
     contact: Mapped["Contact"] = relationship("Contact")
+

@@ -277,3 +277,4 @@ class SafetyService:
         """
         existing = self.webhook_repo.get_by_platform_event_id(platform_event_id)
         return existing is not None
+

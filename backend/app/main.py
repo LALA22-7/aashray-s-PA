@@ -14,6 +14,7 @@ from app.config import get_settings
 from app.core.exceptions import AppException
 from app.core.middleware import setup_middleware
 from app.api.router import api_router
+from app.api.v1.webhooks import router as webhooks_router
 from app.utils.logging import setup_logging
 
 
@@ -51,6 +52,7 @@ def create_app() -> FastAPI:
 
     # ── Routes ───────────────────────────────────────────────────
     app.include_router(api_router)
+    app.include_router(webhooks_router)
 
     # ── Root endpoint ────────────────────────────────────────────
     @app.get("/", tags=["Root"])

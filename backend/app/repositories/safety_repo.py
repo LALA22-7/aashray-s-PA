@@ -166,3 +166,4 @@ class LeadRepository:
         if status:
             stmt = stmt.where(Lead.status == status)
         return self.db.scalars(stmt).all()
+

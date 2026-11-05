@@ -54,3 +54,4 @@ class AuditLog(Base, UUIDMixin, TimestampMixin):
 
     # ── Relationship ──────────────────────────────────────────────
     account: Mapped[Optional["Account"]] = relationship("Account")
+
