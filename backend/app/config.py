@@ -43,6 +43,7 @@ class Settings(BaseSettings):
     WHATSAPP_BUSINESS_ACCESS_TOKEN: str = ""
 
     # ── Instagram API ────────────────────────────────────────────
+    INSTAGRAM_API_VERSION: str = "v21.0"
     INSTAGRAM_VERIFY_TOKEN: str = "aashrays_pa_ig_verify_token"
     INSTAGRAM_APP_ID: str = ""
     INSTAGRAM_APP_SECRET: str = ""

@@ -58,3 +58,4 @@ Aashray operates with **two distinct physical phone numbers**:
    - **Subscribed Fields**: `messages`.
 4. Copy the **Phone Number ID** and generate a permanent **System User Access Token** with `whatsapp_business_messaging` permission.
 5. Save the credentials via the dashboard (`POST /api/accounts/{id}/connect`).
+

@@ -79,3 +79,4 @@ class WhatsAppWebhookPayload(BaseModel):
     entry: list[WhatsAppEntry]
 
     model_config = ConfigDict(extra="ignore")
+

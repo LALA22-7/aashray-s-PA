@@ -30,3 +30,4 @@ class BaseChannelAdapter(ABC):
     ) -> dict[str, Any]:
         """Send a standard text reply to a recipient."""
         pass
+
