@@ -429,3 +429,4 @@ class AccountService:
             **read_dto.model_dump(),
             personality=personality_dto,
         )
+

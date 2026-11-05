@@ -65,3 +65,4 @@ class AutomationRule(Base, UUIDMixin, TimestampMixin):
         "Account",
         back_populates="automation_rules",
     )
+

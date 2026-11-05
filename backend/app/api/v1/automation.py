@@ -69,3 +69,4 @@ def reset_emergency_stop() -> dict:
         "status": "emergency_cleared",
         "message": "Emergency stop cleared. Global automation is paused; invoke /resume when ready.",
     }
+

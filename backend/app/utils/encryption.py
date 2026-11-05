@@ -61,3 +61,4 @@ def decrypt_data(cipher_text: Optional[str]) -> str:
         return decrypted_bytes.decode("utf-8")
     except InvalidToken:
         raise ValueError("Invalid or corrupted ciphertext, decryption failed.")
+

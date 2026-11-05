@@ -97,3 +97,4 @@ class AccountStatusSummary(BaseModel):
     automation_enabled: bool
     automation_mode: AutomationMode
     last_sync_at: Optional[datetime] = None
+

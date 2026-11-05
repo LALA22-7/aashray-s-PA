@@ -112,3 +112,4 @@ class Account(Base, UUIDMixin, TimestampMixin):
         back_populates="account",
         cascade="all, delete-orphan",
     )
+

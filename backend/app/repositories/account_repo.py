@@ -115,3 +115,4 @@ class AccountRepository:
             self.db.commit()
             self.db.refresh(personality)
             return personality
+

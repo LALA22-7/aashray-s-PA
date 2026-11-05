@@ -44,3 +44,4 @@ class ReplyLength(str, Enum):
     SHORT = "short"
     MEDIUM = "medium"
     LONG = "long"
+

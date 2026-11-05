@@ -88,3 +88,4 @@ def test_credential_encryption_isolation() -> None:
 
     assert decrypt_data(encrypted_1) == token_1
     assert decrypt_data(encrypted_2) == token_2
+
