@@ -1,0 +1,83 @@
+"""
+Aashray'sPA — FastAPI application entry point.
+
+One AI Brain. Four Account Identities. One Control Dashboard.
+"""
+
+from collections.abc import AsyncGenerator
+from contextlib import asynccontextmanager
+
+from fastapi import FastAPI, Request
+from fastapi.responses import JSONResponse
+
+from app.config import get_settings
+from app.core.exceptions import AppException
+from app.core.middleware import setup_middleware
+from app.api.router import api_router
+from app.utils.logging import setup_logging
+
+
+@asynccontextmanager
+async def lifespan(app: FastAPI) -> AsyncGenerator[None, None]:
+    """Application startup and shutdown lifecycle."""
+    settings = get_settings()
+    app_logger = setup_logging(settings.LOG_LEVEL)
+    app_logger.info(
+        f"🚀 {settings.APP_NAME} v{settings.APP_VERSION} starting "
+        f"(env={settings.APP_ENV})"
+    )
+    yield
+    app_logger.info(f"👋 {settings.APP_NAME} shutting down")
+
+
+def create_app() -> FastAPI:
+    """Application factory."""
+    settings = get_settings()
+
+    app = FastAPI(
+        title=settings.APP_NAME,
+        description=(
+            "AI-powered personal and business communication assistant. "
+            "One AI Brain. Four Account Identities. One Control Dashboard."
+        ),
+        version=settings.APP_VERSION,
+        lifespan=lifespan,
+        docs_url="/docs",
+        redoc_url="/redoc",
+    )
+
+    # ── Middleware ────────────────────────────────────────────────
+    setup_middleware(app)
+
+    # ── Routes ───────────────────────────────────────────────────
+    app.include_router(api_router)
+
+    # ── Root endpoint ────────────────────────────────────────────
+    @app.get("/", tags=["Root"])
+    def root() -> dict:
+        return {
+            "app": settings.APP_NAME,
+            "version": settings.APP_VERSION,
+            "docs": "/docs",
+            "health": "/api/health",
+        }
+
+    # ── Exception handlers ───────────────────────────────────────
+    @app.exception_handler(AppException)
+    async def app_exception_handler(
+        request: Request, exc: AppException
+    ) -> JSONResponse:
+        return JSONResponse(
+            status_code=exc.status_code,
+            content={
+                "error": exc.error_code,
+                "detail": exc.detail,
+                "extra": exc.extra,
+            },
+        )
+
+    return app
+
+
+app = create_app()
+
