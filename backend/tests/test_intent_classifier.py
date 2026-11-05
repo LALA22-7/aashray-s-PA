@@ -51,3 +51,4 @@ def test_classify_emergency_sensitive_escalation() -> None:
 
     assert result.intent == MessageIntent.SENSITIVE_CONVERSATION
     assert result.requires_human is True
+

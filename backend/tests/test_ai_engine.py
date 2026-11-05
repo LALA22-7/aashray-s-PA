@@ -84,3 +84,4 @@ def test_ai_settings_endpoint(client: TestClient) -> None:
     patch_resp = client.patch("/api/ai/settings", json={"temperature": 0.4})
     assert patch_resp.status_code == 200
     assert patch_resp.json()["temperature"] == 0.4
+

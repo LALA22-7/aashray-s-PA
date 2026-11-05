@@ -169,3 +169,4 @@ class GeminiProvider(BaseAIProvider):
         cleaned.pop("definitions", None)
         cleaned.pop("title", None)
         return cleaned
+

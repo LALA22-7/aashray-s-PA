@@ -92,3 +92,4 @@ class IntentClassifier:
             result.requires_human = True
 
         return result
+

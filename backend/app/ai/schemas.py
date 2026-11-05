@@ -117,3 +117,4 @@ class AISettingsUpdate(BaseModel):
     provider: Optional[str] = None
     model: Optional[str] = None
     temperature: Optional[float] = Field(None, ge=0.0, le=2.0)
+

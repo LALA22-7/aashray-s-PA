@@ -42,3 +42,4 @@ class BaseAIProvider(ABC):
     def is_healthy(self) -> bool:
         """Check provider connectivity and configuration status."""
         pass
+

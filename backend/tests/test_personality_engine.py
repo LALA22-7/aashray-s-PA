@@ -69,3 +69,4 @@ def test_wrap_user_message_enforces_xml_fences() -> None:
     assert "</UNTRUSTED_CONTACT_INPUT>" in wrapped
     assert malicious_input in wrapped
     assert "Attacker" in wrapped
+

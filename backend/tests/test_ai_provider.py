@@ -52,3 +52,4 @@ def test_gemini_markdown_fence_cleaning() -> None:
     fenced_text = "```json\n{\"intent\": \"greeting\", \"reply\": \"Hello!\"}\n```"
     cleaned = GeminiProvider._extract_json_from_text(fenced_text)
     assert cleaned == "{\"intent\": \"greeting\", \"reply\": \"Hello!\"}"
+
