@@ -1,1 +1,7 @@
-# app/services — Business-logic service layer
+"""
+Services export package.
+"""
+
+from app.services.account_service import AccountService
+
+__all__ = ["AccountService"]

@@ -19,7 +19,8 @@ from sqlalchemy import engine_from_config, pool  # noqa: E402
 from app.config import get_settings  # noqa: E402
 
 settings = get_settings()
-from app.database.base import Base  # noqa: E402, F401 – ensures all models are registered
+from app.database.base import Base  # noqa: E402
+import app.models  # noqa: E402, F401 – ensures all models are registered
 
 # Alembic Config object (provides access to alembic.ini values)
 config = context.config
