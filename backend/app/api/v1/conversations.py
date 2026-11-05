@@ -105,3 +105,4 @@ def handle_manual_input(
     """
     service = ConversationService(db)
     return service.handle_manual_message(req)
+

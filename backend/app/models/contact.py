@@ -66,3 +66,4 @@ class Contact(Base, UUIDMixin, TimestampMixin):
         back_populates="contact",
         cascade="all, delete-orphan",
     )
+

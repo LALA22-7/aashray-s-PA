@@ -90,3 +90,4 @@ def test_conversation_reply_with_sliding_window(client: TestClient) -> None:
     # Verify thread now contains all 4 messages
     updated_conv = client.get(f"/api/conversations/{conv_id}").json()
     assert updated_conv["message_count"] == 4
+

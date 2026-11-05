@@ -88,3 +88,4 @@ def test_business_knowledge_isolation_from_personal_prompts(client: TestClient) 
     # Personal prompt should NOT contain bottle agency facts or pricing
     assert "VERIFIED BUSINESS KNOWLEDGE" not in prompt_used
     assert "Shrink sleeves" not in prompt_used
+

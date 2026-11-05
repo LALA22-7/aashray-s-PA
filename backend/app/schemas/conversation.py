@@ -119,3 +119,4 @@ class ManualMessageResponse(BaseModel):
     incoming_message: str
     suggested_reply: AIResponsePayload
     copyable_text: str
+

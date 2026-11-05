@@ -107,3 +107,4 @@ def delete_knowledge(
     """Delete a knowledge item."""
     service = KnowledgeService(db)
     service.delete_knowledge(knowledge_id)
+

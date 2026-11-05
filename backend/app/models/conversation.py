@@ -72,3 +72,4 @@ class Conversation(Base, UUIDMixin, TimestampMixin):
         order_by="Message.created_at",
         cascade="all, delete-orphan",
     )
+

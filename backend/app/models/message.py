@@ -88,3 +88,4 @@ class Message(Base, UUIDMixin, TimestampMixin):
     # ── Relationships ─────────────────────────────────────────────
     conversation: Mapped["Conversation"] = relationship("Conversation", back_populates="messages")
     account: Mapped["Account"] = relationship("Account")
+

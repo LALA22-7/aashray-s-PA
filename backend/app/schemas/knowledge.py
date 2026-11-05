@@ -71,3 +71,4 @@ class KnowledgeSummaryResponse(BaseModel):
     active_items: int
     categories_present: list[str]
     compiled_preview: str
+

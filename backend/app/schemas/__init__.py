@@ -40,6 +40,16 @@ from app.schemas.personality import (
     PersonalityConfigRead,
     PersonalityConfigUpdate,
 )
+from app.schemas.safety import (
+    AuditLogRead,
+    LeadCreate,
+    LeadRead,
+    LeadStatus,
+    LeadUpdate,
+    PolicyAction,
+    PolicyEvaluationResult,
+    WebhookEventRead,
+)
 
 __all__ = [
     "AccountConnectRequest",
@@ -48,6 +58,7 @@ __all__ = [
     "AccountRead",
     "AccountStatusSummary",
     "AccountUpdate",
+    "AuditLogRead",
     "AutomationGlobalSettings",
     "AutomationRuleCreate",
     "AutomationRuleRead",
@@ -62,6 +73,10 @@ __all__ = [
     "ConversationReplyRequest",
     "KnowledgeCategory",
     "KnowledgeSummaryResponse",
+    "LeadCreate",
+    "LeadRead",
+    "LeadStatus",
+    "LeadUpdate",
     "ManualMessageRequest",
     "ManualMessageResponse",
     "MessageBase",
@@ -70,4 +85,7 @@ __all__ = [
     "PersonalityConfigCreate",
     "PersonalityConfigRead",
     "PersonalityConfigUpdate",
+    "PolicyAction",
+    "PolicyEvaluationResult",
+    "WebhookEventRead",
 ]

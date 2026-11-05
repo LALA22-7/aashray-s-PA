@@ -139,3 +139,4 @@ class ConversationRepository:
         recent_desc = self.db.scalars(stmt).all()
         # Return in ascending chronological order for LLM context
         return list(reversed(recent_desc))
+

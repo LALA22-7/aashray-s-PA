@@ -58,3 +58,4 @@ def test_knowledge_summary_and_compilation(client: TestClient) -> None:
     assert data["total_items"] >= 7
     assert data["active_items"] >= 7
     assert "Bottle Advertising" in data["compiled_preview"]
+
