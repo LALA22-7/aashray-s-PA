@@ -147,3 +147,4 @@ class InstagramAdapter(BaseChannelAdapter):
         elapsed_seconds = (now - last_inbound_time).total_seconds()
         max_seconds = (7 * 24 * 3600) if extended_human_agent else (24 * 3600)
         return elapsed_seconds <= max_seconds
+

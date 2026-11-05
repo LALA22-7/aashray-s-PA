@@ -50,3 +50,4 @@ class InstagramEntry(BaseModel):
 class InstagramWebhookPayload(BaseModel):
     object: str
     entry: list[InstagramEntry] = Field(default_factory=list)
+

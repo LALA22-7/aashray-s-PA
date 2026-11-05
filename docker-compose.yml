@@ -1,0 +1,50 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: aashrays_pa_db
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: aashray
+      POSTGRES_PASSWORD: aashray_secure_password_123
+      POSTGRES_DB: aashrays_pa
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U aashray -d aashrays_pa"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: aashrays_pa_backend
+    restart: unless-stopped
+    ports:
+      - "8000:8000"
+    environment:
+      APP_ENV: production
+      DEBUG: "false"
+      PORT: 8000
+      DATABASE_URL: postgresql://aashray:aashray_secure_password_123@postgres:5432/aashrays_pa
+      SECRET_KEY: "prod-secret-key-at-least-32-chars-long-example"
+      JWT_SECRET_KEY: "prod-jwt-secret-key-at-least-32-chars-long-example"
+      ENCRYPTION_KEY: "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA="
+      AI_PROVIDER: gemini
+      GEMINI_API_KEY: "${GEMINI_API_KEY:-}"
+      WHATSAPP_VERIFY_TOKEN: "${WHATSAPP_VERIFY_TOKEN:-aashrays_pa_wa_verify_token}"
+      WHATSAPP_BUSINESS_PHONE_ID: "${WHATSAPP_BUSINESS_PHONE_ID:-}"
+      WHATSAPP_BUSINESS_ACCESS_TOKEN: "${WHATSAPP_BUSINESS_ACCESS_TOKEN:-}"
+      INSTAGRAM_VERIFY_TOKEN: "${INSTAGRAM_VERIFY_TOKEN:-aashrays_pa_ig_verify_token}"
+      INSTAGRAM_APP_SECRET: "${INSTAGRAM_APP_SECRET:-}"
+      INSTAGRAM_ACCESS_TOKEN: "${INSTAGRAM_ACCESS_TOKEN:-}"
+      CORS_ORIGINS: '["http://localhost:3000","https://aashrays-pa.vercel.app"]'
+    depends_on:
+      postgres:
+        condition: service_healthy
+
+volumes:
+  pgdata:

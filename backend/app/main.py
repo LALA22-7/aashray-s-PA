@@ -10,11 +10,12 @@ from contextlib import asynccontextmanager
 from fastapi import FastAPI, Request
 from fastapi.responses import JSONResponse
 
+from app.api.router import api_router
+from app.api.v1.webhooks import router as webhooks_router
 from app.config import get_settings
 from app.core.exceptions import AppException
 from app.core.middleware import setup_middleware
-from app.api.router import api_router
-from app.api.v1.webhooks import router as webhooks_router
+from app.core.production_readiness import assert_production_ready
 from app.utils.logging import setup_logging
 
 
@@ -27,6 +28,8 @@ async def lifespan(app: FastAPI) -> AsyncGenerator[None, None]:
         f"🚀 {settings.APP_NAME} v{settings.APP_VERSION} starting "
         f"(env={settings.APP_ENV})"
     )
+    # Validate production configuration if running in production mode
+    assert_production_ready(settings)
     yield
     app_logger.info(f"👋 {settings.APP_NAME} shutting down")
 
