@@ -66,3 +66,4 @@ databases:
     region: oregon
     databaseName: aashrays_pa
     user: aashray
+

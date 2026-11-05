@@ -104,3 +104,4 @@ def test_assert_production_ready_raises_runtime_error_on_insecure_defaults() -> 
     with pytest.raises(RuntimeError) as exc_info:
         assert_production_ready(bad_settings)
     assert "Production configuration validation failed" in str(exc_info.value)
+

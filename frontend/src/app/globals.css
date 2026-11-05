@@ -1,0 +1,84 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: #F8F9FA;
+    --foreground: #111827;
+    --border: rgba(0, 0, 0, 0.08);
+    --card: rgba(255, 255, 255, 0.85);
+    --card-hover: rgba(255, 255, 255, 0.95);
+    --glass-bg: rgba(255, 255, 255, 0.72);
+    --glass-border: rgba(255, 255, 255, 0.6);
+    --glass-subtle-border: rgba(0, 0, 0, 0.06);
+    --muted: #6B7280;
+    --muted-bg: #F3F4F6;
+  }
+
+  .dark {
+    --background: #0B0D13;
+    --foreground: #F9FAFB;
+    --border: rgba(255, 255, 255, 0.08);
+    --card: rgba(18, 21, 29, 0.85);
+    --card-hover: rgba(24, 28, 39, 0.95);
+    --glass-bg: rgba(18, 21, 29, 0.72);
+    --glass-border: rgba(255, 255, 255, 0.1);
+    --glass-subtle-border: rgba(255, 255, 255, 0.06);
+    --muted: #9CA3AF;
+    --muted-bg: #161A23;
+  }
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Glassmorphism utility components */
+.glass-panel {
+  background: var(--glass-bg);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--border);
+}
+
+.glass-card {
+  background: var(--card);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--glass-subtle-border);
+  box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.04);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.dark .glass-card {
+  box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.4);
+}
+
+.glass-card:hover {
+  background: var(--card-hover);
+  border-color: var(--border);
+}
+
+/* Custom Scrollbar for macOS-like subtle aesthetics */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(156, 163, 175, 0.3);
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(156, 163, 175, 0.5);
+}

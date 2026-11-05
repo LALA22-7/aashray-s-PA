@@ -152,3 +152,4 @@ def assert_production_ready(settings: Settings) -> None:
         raise RuntimeError(
             f"Production configuration validation failed with {len(errors)} critical error(s):\n{error_details}"
         )
+

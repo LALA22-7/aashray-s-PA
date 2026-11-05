@@ -42,3 +42,4 @@ exec uvicorn app.main:app \
     --port "$SERVER_PORT" \
     --proxy-headers \
     --forwarded-allow-ips='*'
+
