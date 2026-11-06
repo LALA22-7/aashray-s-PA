@@ -16,3 +16,4 @@
 ## 4. Prompt Injection Defense
 - Incoming contact messages are isolated inside strict `<UNTRUSTED_CONTACT_INPUT>` delimiters before being submitted to the Gemini AI model.
 - System instructions explicitly forbid the AI from evaluating instructions found inside untrusted user input blocks.
+

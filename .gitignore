@@ -60,6 +60,7 @@ alembic/versions/*.pyc
 node_modules/
 .next/
 out/
+auth_info_baileys/
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
@@ -77,6 +78,8 @@ pnpm-debug.log*
 # Databases
 # ========================
 *.db
+*.db-shm
+*.db-wal
 *.sqlite3
 *.sql.bak
 

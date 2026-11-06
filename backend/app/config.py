@@ -42,6 +42,9 @@ class Settings(BaseSettings):
     WHATSAPP_BUSINESS_PHONE_ID: str = ""
     WHATSAPP_BUSINESS_ACCESS_TOKEN: str = ""
 
+    # ── WhatsApp Personal Bridge (Multi-Device Companion) ────────
+    WHATSAPP_PERSONAL_BRIDGE_URL: str = "http://localhost:3001"
+
     # ── Instagram API ────────────────────────────────────────────
     INSTAGRAM_API_VERSION: str = "v21.0"
     INSTAGRAM_VERIFY_TOKEN: str = "aashrays_pa_ig_verify_token"

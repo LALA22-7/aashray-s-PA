@@ -82,6 +82,18 @@ def update_account(
     return service.to_account_read(account)
 
 
+@router.patch("/{account_id}/automation", response_model=AccountRead)
+def update_account_automation(
+    account_id: str,
+    data: AccountUpdate,
+    db: Session = Depends(get_db),
+) -> AccountRead:
+    """Update automation settings on an account."""
+    service = AccountService(db)
+    account = service.update_account(account_id, data)
+    return service.to_account_read(account)
+
+
 @router.post("/{account_id}/connect", response_model=AccountRead)
 def connect_account(
     account_id: str,

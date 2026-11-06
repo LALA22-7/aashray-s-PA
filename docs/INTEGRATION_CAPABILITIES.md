@@ -8,3 +8,4 @@
 | **Messaging Window** | Unlimited (Manual) | 24 Hours Standard | Unlimited (Manual) | 24 Hours (7 Days Human Agent) |
 | **Meta Approval Required**| None | Business Verification | None | Page Link & App Review |
 | **Safety Interception** | Pre-generated Preview | Automatic Policy Gate | Pre-generated Preview | Automatic Policy Gate |
+

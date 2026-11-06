@@ -132,3 +132,4 @@ export function Header({ onSearchClick }: HeaderProps) {
     </header>
   );
 }
+

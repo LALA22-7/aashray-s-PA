@@ -48,3 +48,4 @@ The PostgreSQL database enforces relational isolation and tenant privacy using U
 │ status                │
 └───────────────────────┘
 ```
+

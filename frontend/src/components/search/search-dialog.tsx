@@ -109,3 +109,4 @@ export function SearchDialog({ open, onClose }: SearchDialogProps) {
     </div>
   );
 }
+

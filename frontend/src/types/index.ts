@@ -146,3 +146,4 @@ export interface BusinessKnowledgeItem {
   source: string;
   is_verified: boolean;
 }
+

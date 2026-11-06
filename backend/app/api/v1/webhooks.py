@@ -11,6 +11,8 @@ from app.api.deps import get_db
 from app.integrations.instagram.adapter import InstagramAdapter
 from app.integrations.instagram.webhook import process_instagram_webhook
 from app.integrations.whatsapp.adapter import WhatsAppAdapter
+from app.integrations.whatsapp.personal_adapter import PersonalWhatsAppAdapter
+from app.integrations.whatsapp.personal_webhook import process_personal_whatsapp_webhook
 from app.integrations.whatsapp.webhook import process_whatsapp_webhook
 
 router = APIRouter(prefix="/webhooks", tags=["Platform Webhooks"])
@@ -121,5 +123,45 @@ async def receive_instagram_webhook(
 
     result = process_instagram_webhook(payload_dict=payload, db=db, adapter=adapter)
     return result
+
+
+# ── Personal WhatsApp Companion Bridge Endpoints ───────────────────
+
+
+@router.post("/whatsapp-personal")
+async def receive_personal_whatsapp_webhook(
+    request: Request,
+    db: Session = Depends(get_db),
+) -> dict:
+    """
+    Process incoming personal WhatsApp events forwarded by the Baileys companion bridge.
+    """
+    try:
+        payload = await request.json()
+    except Exception:
+        raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Invalid JSON payload.")
+
+    adapter = PersonalWhatsAppAdapter()
+    result = process_personal_whatsapp_webhook(payload=payload, db=db, adapter=adapter)
+    return result
+
+
+@router.get("/whatsapp-personal/status")
+def get_personal_whatsapp_bridge_status() -> dict:
+    """
+    Check companion device connection status (connected, qr_ready, disconnected).
+    """
+    adapter = PersonalWhatsAppAdapter()
+    return adapter.get_status()
+
+
+@router.get("/whatsapp-personal/qr")
+def get_personal_whatsapp_qr() -> dict:
+    """
+    Fetch live QR code data URL for scanning with WhatsApp on personal phone.
+    """
+    adapter = PersonalWhatsAppAdapter()
+    return adapter.get_qr()
+
 
 
