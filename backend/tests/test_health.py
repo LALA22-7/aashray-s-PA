@@ -4,11 +4,21 @@ from fastapi.testclient import TestClient
 
 
 def test_health_endpoint(client: TestClient) -> None:
-    """GET /api/health returns 200 with status 'healthy'."""
+    """GET /api/health and /api/v1/health return 200 with status 'healthy'."""
     response = client.get("/api/health")
     assert response.status_code == 200
     data = response.json()
     assert data["status"] == "healthy"
+
+    # Test /api/v1 alias
+    v1_resp = client.get("/api/v1/health")
+    assert v1_resp.status_code == 200
+    assert v1_resp.json()["status"] == "healthy"
+
+    # Test direct /health alias
+    direct_resp = client.get("/health")
+    assert direct_resp.status_code == 200
+    assert direct_resp.json()["status"] == "healthy"
 
 
 def test_health_returns_app_info(client: TestClient) -> None:
