@@ -229,3 +229,4 @@ app.listen(PORT, () => {
   console.log(`🚀 Aashray'sPA WhatsApp Companion Bridge listening on port ${PORT}`);
   initBaileys().catch((err) => console.error("Error booting Baileys:", err));
 });
+

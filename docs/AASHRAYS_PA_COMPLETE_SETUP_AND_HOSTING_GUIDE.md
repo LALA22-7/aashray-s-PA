@@ -278,3 +278,4 @@ If an external bot loops, Meta sends erroneous webhooks, or you want to freeze a
   curl -X POST https://<your-backend-url>/api/automation/emergency-stop
   ```
 - **Effect**: All automatic outbound messaging is terminated immediately across all accounts. Every subsequent message is held in the Approval Centre for manual review. Click **Resume Safe AI** to return to normal.
+
