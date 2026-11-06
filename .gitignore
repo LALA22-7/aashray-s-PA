@@ -25,8 +25,9 @@ env/
 sdist/
 develop-eggs/
 eggs/
-lib/
+/lib/
 lib64/
+!frontend/src/lib/
 parts/
 var/
 wheels/
